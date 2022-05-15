@@ -9,7 +9,7 @@ const conexion= "mongodb+srv://nicolle:nicolle123@cluster0.3hcmg.mongodb.net/myF
 //     const resultado= await usuario1.save()
 //     console.log(resultado)
 // })();
-( async ()=>{
+( async ()=> {
     const estadoConexion = await mongoose.connect(conexion);
 
 
