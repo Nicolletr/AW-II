@@ -1,6 +1,5 @@
 const ValidarCampos =  require('../middlewares/validarCampos');
 
-
 module.exports = {
-    ...ValidarCampos
+    ...todasLasFunciones
 }
