@@ -13,9 +13,21 @@ app.get('/prueba',(req,res,next)=>{
     next();
 }, (req,res, next)=>{
     
-    res.status(200).send('prueba'); //200 para devolver información (JSON)
+    res.status(200).send({mensaje:"Hola prueba"}); //200 para devolver información (JSON)
 })
 
+app.use('/prueba',(req,res,next)=>{
+    req.body.nombre = req.body.nombre.toUpperCase();
+    next();
+})
+app.post('/prueba',(req,res,next)=>{
+    res.status(201).send(req.body);
+    next();
+})
+app.use('/prueba',(req,res,next)=>{
+    console.log(`Despues del Middleware`);
+
+})
 app.listen(PUERTO,()=>{
     console.log(`Servidor ejecutandose en el puerto ${PUERTO}`)
 })
