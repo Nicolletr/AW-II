@@ -19,7 +19,7 @@ const { connection } = mongoose_1.default;
 exports.connection = connection;
 const Conexion = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield mongoose_1.default.connect(process.env["MONG"] || "mongodb+srv://nicolle:nicolle123@cluster0.3hcmg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+        yield mongoose_1.default.connect(process.env["MONG"] || "mongodb+srv://ejmpl01:Mariajo1131@ejemplo01.30qzr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
         console.log(`Base de datos conectada...`);
     }
     catch (error) {

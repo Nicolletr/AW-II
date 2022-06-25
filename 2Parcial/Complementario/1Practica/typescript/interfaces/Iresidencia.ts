@@ -1,6 +1,6 @@
 export interface Iresidencia{
-    id_propietario: String;
-    nombre_res: String;
-    cantidad: Number;
+    idPropietario: String;
+    nombre: String;
+    CantidadHabitaciones: Number;
     direccion: String;
 }

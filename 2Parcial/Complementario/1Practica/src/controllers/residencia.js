@@ -21,7 +21,6 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.serviciosBorrados = exports.actRes = exports.nuevaRes = exports.obtResId = exports.ResidenciaTotal = void 0;
-//const { Contratos } = require("../models");
 const residencia_1 = require("../models/residencia");
 ////////////////////////////////////////////////////////////////////////////////
 //presentacion con postman
@@ -52,11 +51,11 @@ exports.obtResId = obtResId;
 const nuevaRes = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const _a = req.body, { estado } = _a, body = __rest(_a, ["estado"]);
     const resExistente = yield residencia_1.residencia.findOne({
-        nombre_res: body.nombre_res,
+        nombre: body.nombre,
     });
     if (resExistente) {
         res.status(400).json({
-            message: `La residencia con ese nombre ya existe ${resExistente.nombre_res}`,
+            message: `La residencia con ese nombre ya existe ${resExistente.nombre}`,
         });
     }
     const resid = new residencia_1.residencia(body);

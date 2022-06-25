@@ -1,33 +1,26 @@
-//const { Schema, model } = require("mongoose");
 import mongoose from "mongoose";
 const { Schema, model } = mongoose;
 import {Iresidencia } from "../interfaces/Iresidencia"
 
 const ResidenciasSchema: mongoose.Schema = new Schema <Iresidencia>( 
-  
     {
-        id_propietario: {
-          type: String,
+        idPropietario: {
+          type:mongoose.Schema.Types.ObjectId, ref:'propietario'
         },
-        nombre_res: {
+        nombre: {
           type: String,
-          required: [true, `El nombre del producto es obligatorio`],
+          required: [true, `El nombre es obligatorio`],
           unique: true,
         },
-        cantidad: {
+        CantidadHabitaciones: {
           type: Number,
           default: 0,
         },
         direccion: {
           type: String,
         },
-      },
-    {
-      timestamps: true,
-      versionKey: false,
-    }
+    },
   );
-  
-  const residencia = model <Iresidencia> ("Residencias", ResidenciasSchema);
+  const residencia = mongoose.model <Iresidencia> ("Residencias", ResidenciasSchema);
   export {residencia}
   

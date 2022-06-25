@@ -4,7 +4,7 @@ const { connection } = mongoose;
 
 const Conexion = async () => {
   try {
-    await mongoose.connect(process.env["MONG"] || "mongodb+srv://nicolle:nicolle123@cluster0.3hcmg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"); 
+    await mongoose.connect(process.env["MONG"] || "mongodb+srv://ejmpl01:Mariajo1131@ejemplo01.30qzr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"); 
 
 
     console.log(`Base de datos conectada...`);
