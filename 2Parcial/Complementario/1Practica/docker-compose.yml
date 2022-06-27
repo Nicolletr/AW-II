@@ -5,7 +5,7 @@ services:
     depends_on:
       - mongo
     environment:
-      - MONGODB_CNN= mongodb://mongo:27017/residencias
+      - MONGODB_CNN=mongodb://mongo:27017/residencias
     ports:
       - '3000:3000'
   mongo:
