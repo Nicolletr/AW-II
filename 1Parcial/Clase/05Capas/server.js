@@ -1,11 +1,11 @@
-const express  = requiere('express');
+const express = require('express');
 const cors = require('cors');
-const productos = require('./models/productos');
+const { dbConnection}= require('./database/config');
 class Server {
     constructor(){
         this.app = express.Router();
         this.router = express.Router();
-        this.port = process.env.PORT;
+        this.port = Number(3000);
         this.paths= {
             productos:'/api/productos',
         }

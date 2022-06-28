@@ -7,8 +7,7 @@ const { obtenerProducto,
         borrarProducto       
 } = require('../controllers').Producto;
 
-const { ValidarCampos  } = require('../middlewares');
-const { validarCampos } = require('../middlewares/validarCampos');
+const { validarCampos  } = require('../middlewares');
 
 const router =  Router();
 
@@ -17,7 +16,7 @@ router.get('/:id',
 [ check('id', 'El id no es válido').isMongoId(), validarCampos ]
 ,obtenerProducto )
 router.post('/',  
-[check('nombre','El nombre es obligatorio').not().isEmpty(), ValidarCampos]
+[check('nombre','El nombre es obligatorio').not().isEmpty(), validarCampos]
 , crearProducto)
 router.put('/:id', [ check('id', 'El id no es válido').isMongoId(), validarCampos ],
   actualizarProducto)
