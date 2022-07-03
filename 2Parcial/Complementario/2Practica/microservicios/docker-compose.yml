@@ -1,0 +1,19 @@
+version: '3'
+services:
+  residencias:
+    build: ./residencia-service
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_CNN=mongodb://mongo:27017/microservicio-residencias
+  mongo:
+    image: mongo
+    command: mongod --quiet --logpath /dev/null
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - residencias
