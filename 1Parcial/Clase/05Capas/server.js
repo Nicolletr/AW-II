@@ -5,7 +5,7 @@ class Server {
     constructor(){
         this.app = express.Router();
         this.router = express.Router();
-        this.port = Number(3000);
+        this.port = process.env.PORT;
         this.paths= {
             productos:'/api/productos',
         }

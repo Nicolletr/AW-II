@@ -1,19 +1,54 @@
 version: '3'
 services:
+  contrato:
+    build: ./contrato-servicio
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_CNN=mongodb://mongo:27017/microservicio-contratos
   residencias:
-    build: ./residencia-service
+    build: ./residencia-servicio
     depends_on:
       - mongo
     environment:
       - MONGODB_CNN=mongodb://mongo:27017/microservicio-residencias
+  propietario:
+    build: ./propietario-servicio
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_CNN=mongodb://mongo:27017/microservicio-propietarios
+  habitaciones:
+    build: ./habitacion-servicio
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_CNN=mongodb://mongo:27017/microservicio-habitaciones
+  residentes:
+    build: ./residente-servicio
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_CNN=mongodb://mongo:27017/microservicio-residentes
+  servicios:
+    build: ./servicios-servicio
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_CNN=mongodb://mongo:27017/microservicio-servicios
   mongo:
     image: mongo
     command: mongod --quiet --logpath /dev/null
   nginx:
     image: nginx:latest
-    ports:
+    ports: 
       - "8080:8080"
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
     depends_on:
+      - contrato
       - residencias
+      - propietario
+      - habitaciones
+      - residentes
+      - servicios
